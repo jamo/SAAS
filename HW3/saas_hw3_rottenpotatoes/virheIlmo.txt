@@ -1,0 +1,308 @@
+-------------------------------------------------------------------------------
+Test passed. (+0.2)
+--------------------------------------------------------------------------------
+Test passed. (+0.075)
+--------------------------------------------------------------------------------
+Test passed. (+0.075)
+--------------------------------------------------------------------------------
+Test passed. (+0.075)
+--------------------------------------------------------------------------------
+Test passed. (+0.075)
+--------------------------------------------------------------------------------
+Test passed. (+0.25)
+--------------------------------------------------------------------------------
+The following scenarios passed incorrectly (should have failed):
+ - sort movies in increasing order of release date
+with the following modifications:
+ - results reversed
+| Disabling profiles...
+| Disabling profiles...
+| Feature: display list of movies sorted by different criteria
+|   
+|   As an avid moviegoer
+|   So that I can quickly browse movies based on my preferences
+|   I want to see movies sorted by title or release date
+| 
+|   Background: movies have been added to database # /tmp/submission20120315-17866-10aa53d/features/sort_movie_list.feature:7
+|     Given the following movies exist:            # /tmp/submission20120315-17866-10aa53d/features/step_definitions/movie_steps.rb:4
+|       | title                   | rating | release_date |
+|       | Aladdin                 | G      | 25-Nov-1992  |
+|       | The Terminator          | R      | 26-Oct-1984  |
+|       | When Harry Met Sally    | R      | 21-Jul-1989  |
+|       | The Help                | PG-13  | 10-Aug-2011  |
+|       | Chocolat                | PG-13  | 5-Jan-2001   |
+|       | Amelie                  | R      | 25-Apr-2001  |
+|       | 2001: A Space Odyssey   | G      | 6-Apr-1968   |
+|       | The Incredibles         | PG     | 5-Nov-2004   |
+|       | Raiders of the Lost Ark | PG     | 12-Jun-1981  |
+|       | Chicken Run             | G      | 21-Jun-2000  |
+|     And I am on the RottenPotatoes home page     # /tmp/submission20120315-17866-10aa53d/features/step_definitions/web_steps.rb:51
+| 
+|   Scenario: sort movies alphabetically                              # /tmp/submission20120315-17866-10aa53d/features/sort_movie_list.feature:24
+|     
+|     I am on the RottenPotatoes home page
+|     And I check the following ratings: PG, R, G, PG-13              # /tmp/submission20120315-17866-10aa53d/features/step_definitions/movie_steps.rb:40
+|     And I press "ratings_submit"                                    # /tmp/submission20120315-17866-10aa53d/features/step_definitions/web_steps.rb:59
+|     Then I should be on the RottenPotatoes home page                # /tmp/submission20120315-17866-10aa53d/features/step_definitions/web_steps.rb:237
+|     And I should see all of the movies                              # /tmp/submission20120315-17866-10aa53d/features/step_definitions/movie_steps.rb:30
+|     Then I should see "Movie Title"                                 # /tmp/submission20120315-17866-10aa53d/features/step_definitions/web_steps.rb:112
+|     Then I follow "title_header"                                    # /tmp/submission20120315-17866-10aa53d/features/step_definitions/web_steps.rb:63
+|     Then I should be on the RottenPotatoes home page                # /tmp/submission20120315-17866-10aa53d/features/step_definitions/web_steps.rb:237
+|     And I should see "Aladdin" before "Amelie"                      # /tmp/submission20120315-17866-10aa53d/features/step_definitions/movie_steps.rb:19
+|       2666 joo 2544jeh<!DOCTYPE html>
+|       <html>
+|       <head>
+|       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+|       <title>Rotten Potatoes!</title>
+|       <link href="/assets/application.css" media="screen" rel="stylesheet" type="text/css">
+|       <script src="/assets/application.js" type="text/javascript"></script>
+|       </head>
+|       <body>
+|       <h1 class="title">Rotten Potatoes!</h1>
+|       <div id="main">
+|       <h1>All Movies</h1>
+|       <form accept-charset="UTF-8" action="/movies" id="ratings_form" method="get">
+|       <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+|       <input id="title_sort" name="title_sort" type="hidden" value="true">
+|       
+|       Include:
+|       G
+|       <input checked id="ratings_G" name="ratings[G]" type="checkbox" value="1">
+|       PG
+|       <input checked id="ratings_PG" name="ratings[PG]" type="checkbox" value="1">
+|       PG-13
+|       <input checked id="ratings_PG-13" name="ratings[PG-13]" type="checkbox" value="1">
+|       NC-17
+|       <input id="ratings_NC-17" name="ratings[NC-17]" type="checkbox" value="1">
+|       R
+|       <input checked id="ratings_R" name="ratings[R]" type="checkbox" value="1"><input id="ratings_submit" name="commit" type="submit" value="Refresh">
+|       </form>
+|       
+|       <table id="movies">
+|       <thead><tr>
+|       <th class="hilite"><a href="/movies?ratings%5BG%5D=1&amp;ratings%5BPG%5D=1&amp;ratings%5BPG-13%5D=1&amp;ratings%5BR%5D=1&amp;sort=title" id="title_header">Movie Title</a></th>
+|       <th>Rating</th>
+|       <th><a href="/movies?ratings%5BG%5D=1&amp;ratings%5BPG%5D=1&amp;ratings%5BPG-13%5D=1&amp;ratings%5BR%5D=1&amp;sort=release_date" id="release_date_header">Release Date</a></th>
+|       <th>More Info</th>
+|       </tr></thead>
+|       <tbody>
+|       <tr>
+|       <td>When Harry Met Sally</td>
+|       <td>R</td>
+|       <td>1989-07-21 00:00:00 UTC</td>
+|       <td><a href="/movies/3">More about When Harry Met Sally</a></td>
+|       </tr>
+|       <tr>
+|       <td>The Terminator</td>
+|       <td>R</td>
+|       <td>1984-10-26 00:00:00 UTC</td>
+|       <td><a href="/movies/2">More about The Terminator</a></td>
+|       </tr>
+|       <tr>
+|       <td>The Incredibles</td>
+|       <td>PG</td>
+|       <td>2004-11-05 00:00:00 UTC</td>
+|       <td><a href="/movies/8">More about The Incredibles</a></td>
+|       </tr>
+|       <tr>
+|       <td>The Help</td>
+|       <td>PG-13</td>
+|       <td>2011-08-10 00:00:00 UTC</td>
+|       <td><a href="/movies/4">More about The Help</a></td>
+|       </tr>
+|       <tr>
+|       <td>Raiders of the Lost Ark</td>
+|       <td>PG</td>
+|       <td>1981-06-12 00:00:00 UTC</td>
+|       <td><a href="/movies/9">More about Raiders of the Lost Ark</a></td>
+|       </tr>
+|       <tr>
+|       <td>Chocolat</td>
+|       <td>PG-13</td>
+|       <td>2001-01-05 00:00:00 UTC</td>
+|       <td><a href="/movies/5">More about Chocolat</a></td>
+|       </tr>
+|       <tr>
+|       <td>Chicken Run</td>
+|       <td>G</td>
+|       <td>2000-06-21 00:00:00 UTC</td>
+|       <td><a href="/movies/10">More about Chicken Run</a></td>
+|       </tr>
+|       <tr>
+|       <td>Amelie</td>
+|       <td>R</td>
+|       <td>2001-04-25 00:00:00 UTC</td>
+|       <td><a href="/movies/6">More about Amelie</a></td>
+|       </tr>
+|       <tr>
+|       <td>Aladdin</td>
+|       <td>G</td>
+|       <td>1992-11-25 00:00:00 UTC</td>
+|       <td><a href="/movies/1">More about Aladdin</a></td>
+|       </tr>
+|       <tr>
+|       <td>2001: A Space Odyssey</td>
+|       <td>G</td>
+|       <td>1968-04-06 00:00:00 UTC</td>
+|       <td><a href="/movies/7">More about 2001: A Space Odyssey</a></td>
+|       </tr>
+|       </tbody>
+|       </table>
+|       <a href="/movies/new">Add new movie</a>
+|       
+|       </div>
+|       </body>
+|       </html>
+|        (MiniTest::Assertion)
+|       /tmp/submission20120315-17866-10aa53d/features/step_definitions/movie_steps.rb:24:in `/I should see "(.*)" before "(.*)"/'
+|       /tmp/submission20120315-17866-10aa53d/features/sort_movie_list.feature:36:in `And I should see "Aladdin" before "Amelie"'
+|     And I should see "Amelie" before "Chicken Run"                  # /tmp/submission20120315-17866-10aa53d/features/step_definitions/movie_steps.rb:19
+|     And I should see "Chicken Run" before "Chocolat"                # /tmp/submission20120315-17866-10aa53d/features/step_definitions/movie_steps.rb:19
+|     And I should see "Chocolat" before "Raiders of the Lost Ark"    # /tmp/submission20120315-17866-10aa53d/features/step_definitions/movie_steps.rb:19
+|     And I should see "Raiders of the Lost Ark" before "The Help"    # /tmp/submission20120315-17866-10aa53d/features/step_definitions/movie_steps.rb:19
+|     And I should see "The Help" before "The Incredibles"            # /tmp/submission20120315-17866-10aa53d/features/step_definitions/movie_steps.rb:19
+|     And I should see "The Incredibles" before "The Terminator"      # /tmp/submission20120315-17866-10aa53d/features/step_definitions/movie_steps.rb:19
+|     And I should see "The Terminator" before "When Harry Met Sally" # /tmp/submission20120315-17866-10aa53d/features/step_definitions/movie_steps.rb:19
+| 
+|   # your steps here
+|   Scenario: sort movies in increasing order of release date                   # /tmp/submission20120315-17866-10aa53d/features/sort_movie_list.feature:46
+|     
+|     I am on the RottenPotatoes home page
+|     And I check the following ratings: PG, R, G, PG-13                        # /tmp/submission20120315-17866-10aa53d/features/step_definitions/movie_steps.rb:40
+|     And I press "ratings_submit"                                              # /tmp/submission20120315-17866-10aa53d/features/step_definitions/web_steps.rb:59
+|     Then I should be on the RottenPotatoes home page                          # /tmp/submission20120315-17866-10aa53d/features/step_definitions/web_steps.rb:237
+|     And I should see all of the movies                                        # /tmp/submission20120315-17866-10aa53d/features/step_definitions/movie_steps.rb:30
+|     Then I should see "Release Date"                                          # /tmp/submission20120315-17866-10aa53d/features/step_definitions/web_steps.rb:112
+|     Then I follow "Release Date"                                              # /tmp/submission20120315-17866-10aa53d/features/step_definitions/web_steps.rb:63
+|     Then I should be on the RottenPotatoes home page                          # /tmp/submission20120315-17866-10aa53d/features/step_definitions/web_steps.rb:237
+|     And I should see "2001: A Space Odyssey" before "Raiders of the Lost Ark" # /tmp/submission20120315-17866-10aa53d/features/step_definitions/movie_steps.rb:19
+|       2806 joo 2649jeh<!DOCTYPE html>
+|       <html>
+|       <head>
+|       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+|       <title>Rotten Potatoes!</title>
+|       <link href="/assets/application.css" media="screen" rel="stylesheet" type="text/css">
+|       <script src="/assets/application.js" type="text/javascript"></script>
+|       </head>
+|       <body>
+|       <h1 class="title">Rotten Potatoes!</h1>
+|       <div id="main">
+|       <h1>All Movies</h1>
+|       <form accept-charset="UTF-8" action="/movies" id="ratings_form" method="get">
+|       <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+|       
+|       <input id=":release_date_sort" name=":release_date_sort" type="hidden" value="true">
+|       Include:
+|       G
+|       <input checked id="ratings_G" name="ratings[G]" type="checkbox" value="1">
+|       PG
+|       <input checked id="ratings_PG" name="ratings[PG]" type="checkbox" value="1">
+|       PG-13
+|       <input checked id="ratings_PG-13" name="ratings[PG-13]" type="checkbox" value="1">
+|       NC-17
+|       <input id="ratings_NC-17" name="ratings[NC-17]" type="checkbox" value="1">
+|       R
+|       <input checked id="ratings_R" name="ratings[R]" type="checkbox" value="1"><input id="ratings_submit" name="commit" type="submit" value="Refresh">
+|       </form>
+|       
+|       <table id="movies">
+|       <thead><tr>
+|       <th><a href="/movies?ratings%5BG%5D=1&amp;ratings%5BPG%5D=1&amp;ratings%5BPG-13%5D=1&amp;ratings%5BR%5D=1&amp;sort=title" id="title_header">Movie Title</a></th>
+|       <th>Rating</th>
+|       <th class="hilite"><a href="/movies?ratings%5BG%5D=1&amp;ratings%5BPG%5D=1&amp;ratings%5BPG-13%5D=1&amp;ratings%5BR%5D=1&amp;sort=release_date" id="release_date_header">Release Date</a></th>
+|       <th>More Info</th>
+|       </tr></thead>
+|       <tbody>
+|       <tr>
+|       <td>The Help</td>
+|       <td>PG-13</td>
+|       <td>2011-08-10 00:00:00 UTC</td>
+|       <td><a href="/movies/4">More about The Help</a></td>
+|       </tr>
+|       <tr>
+|       <td>The Incredibles</td>
+|       <td>PG</td>
+|       <td>2004-11-05 00:00:00 UTC</td>
+|       <td><a href="/movies/8">More about The Incredibles</a></td>
+|       </tr>
+|       <tr>
+|       <td>Amelie</td>
+|       <td>R</td>
+|       <td>2001-04-25 00:00:00 UTC</td>
+|       <td><a href="/movies/6">More about Amelie</a></td>
+|       </tr>
+|       <tr>
+|       <td>Chocolat</td>
+|       <td>PG-13</td>
+|       <td>2001-01-05 00:00:00 UTC</td>
+|       <td><a href="/movies/5">More about Chocolat</a></td>
+|       </tr>
+|       <tr>
+|       <td>Chicken Run</td>
+|       <td>G</td>
+|       <td>2000-06-21 00:00:00 UTC</td>
+|       <td><a href="/movies/10">More about Chicken Run</a></td>
+|       </tr>
+|       <tr>
+|       <td>Aladdin</td>
+|       <td>G</td>
+|       <td>1992-11-25 00:00:00 UTC</td>
+|       <td><a href="/movies/1">More about Aladdin</a></td>
+|       </tr>
+|       <tr>
+|       <td>When Harry Met Sally</td>
+|       <td>R</td>
+|       <td>1989-07-21 00:00:00 UTC</td>
+|       <td><a href="/movies/3">More about When Harry Met Sally</a></td>
+|       </tr>
+|       <tr>
+|       <td>The Terminator</td>
+|       <td>R</td>
+|       <td>1984-10-26 00:00:00 UTC</td>
+|       <td><a href="/movies/2">More about The Terminator</a></td>
+|       </tr>
+|       <tr>
+|       <td>Raiders of the Lost Ark</td>
+|       <td>PG</td>
+|       <td>1981-06-12 00:00:00 UTC</td>
+|       <td><a href="/movies/9">More about Raiders of the Lost Ark</a></td>
+|       </tr>
+|       <tr>
+|       <td>2001: A Space Odyssey</td>
+|       <td>G</td>
+|       <td>1968-04-06 00:00:00 UTC</td>
+|       <td><a href="/movies/7">More about 2001: A Space Odyssey</a></td>
+|       </tr>
+|       </tbody>
+|       </table>
+|       <a href="/movies/new">Add new movie</a>
+|       
+|       </div>
+|       </body>
+|       </html>
+|        (MiniTest::Assertion)
+|       /tmp/submission20120315-17866-10aa53d/features/step_definitions/movie_steps.rb:24:in `/I should see "(.*)" before "(.*)"/'
+|       /tmp/submission20120315-17866-10aa53d/features/sort_movie_list.feature:56:in `And I should see "2001: A Space Odyssey" before "Raiders of the Lost Ark"'
+|     And I should see "Raiders of the Lost Ark" before "The Terminator"        # /tmp/submission20120315-17866-10aa53d/features/step_definitions/movie_steps.rb:19
+|     And I should see "The Terminator" before "When Harry Met Sally"           # /tmp/submission20120315-17866-10aa53d/features/step_definitions/movie_steps.rb:19
+|     And I should see "When Harry Met Sally" before "Aladdin"                  # /tmp/submission20120315-17866-10aa53d/features/step_definitions/movie_steps.rb:19
+|     And I should see "Aladdin" before "Chicken Run"                           # /tmp/submission20120315-17866-10aa53d/features/step_definitions/movie_steps.rb:19
+|     And I should see "Chicken Run" before "Chocolat"                          # /tmp/submission20120315-17866-10aa53d/features/step_definitions/movie_steps.rb:19
+|     And I should see "Chocolat" before "Amelie"                               # /tmp/submission20120315-17866-10aa53d/features/step_definitions/movie_steps.rb:19
+|     And I should see "Amelie" before "The Incredibles"                        # /tmp/submission20120315-17866-10aa53d/features/step_definitions/movie_steps.rb:19
+|     And I should see "The Incredibles" before "The Help"                      # /tmp/submission20120315-17866-10aa53d/features/step_definitions/movie_steps.rb:19
+| 
+| Failing Scenarios:
+| cucumber /tmp/submission20120315-17866-10aa53d/features/sort_movie_list.feature:24 # Scenario: sort movies alphabetically
+| 
+| I am on the RottenPotatoes home page
+| cucumber /tmp/submission20120315-17866-10aa53d/features/sort_movie_list.feature:46 # Scenario: sort movies in increasing order of release date
+| 
+| I am on the RottenPotatoes home page
+| 
+| 2 scenarios (2 failed)
+| 35 steps (2 failed, 15 skipped, 18 passed)
+| 0m1.229s
+Test failed. (-0.25)
+Total score: 0.75 / 1.0
+Completed in 13.695364835 seconds.
